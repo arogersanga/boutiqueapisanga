@@ -1,1 +1,1 @@
-web: java -war target/boutiqueapisanga.0.0.1-SNAPSHOT.war
+web: java -jar target/boutiqueapisanga.0.0.1-SNAPSHOT.jar
