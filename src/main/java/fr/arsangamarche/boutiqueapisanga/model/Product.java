@@ -2,7 +2,10 @@ package fr.arsangamarche.boutiqueapisanga.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+
+import org.hibernate.type.BlobType;
 
 import lombok.Data;
 
@@ -10,6 +13,7 @@ import lombok.Data;
 @Entity
 public class Product extends BaseEntity implements Serializable{
 	private String name;
+	@Column(columnDefinition="text", length=10485760)
 	private String [] images;
 	private String oldPrice;
 	private String newPrice;
