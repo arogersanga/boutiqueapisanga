@@ -13,7 +13,6 @@ import lombok.Data;
 @Entity
 public class Product extends BaseEntity implements Serializable{
 	private String name;
-	@Column(columnDefinition="text", length=10485760)
 	private String [] images;
 	private String oldPrice;
 	private String newPrice;
