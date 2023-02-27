@@ -13,7 +13,7 @@ import lombok.Data;
 @Entity
 public class Product extends BaseEntity implements Serializable{
 	private String name;
-	private String [] images;
+	private Integer [] imagesIds;
 	private String oldPrice;
 	private String newPrice;
 	private String discount;
@@ -38,11 +38,11 @@ public class Product extends BaseEntity implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String[] getImages() {
-		return images;
+	public Integer[] getImagesIds() {
+		return imagesIds;
 	}
-	public void setImages(String[] images) {
-		this.images = images;
+	public void setImagesIds(Integer[] imagesIds) {
+		this.imagesIds = imagesIds;
 	}
 	public String getOldPrice() {
 		return oldPrice;
