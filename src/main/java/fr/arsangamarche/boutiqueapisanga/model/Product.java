@@ -25,7 +25,7 @@ public class Product extends BaseEntity implements Serializable{
 	private String [] color;
 	private String [] size;
 	private Integer weight;
-	private Integer [] categoryIds;
+	private Integer categoryId;
 	private Integer [] affichageIds;
 
 	Product(){
@@ -111,12 +111,12 @@ public class Product extends BaseEntity implements Serializable{
 		this.weight = weight;
 	}
 
-	public Integer[] getCategoryIds() {
-		return categoryIds;
+	public Integer getCategoryId() {
+		return categoryId;
 	}
 
-	public void setCategoryIds(Integer[] categoryIds) {
-		this.categoryIds = categoryIds;
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public Integer[] getAffichageIds() {
