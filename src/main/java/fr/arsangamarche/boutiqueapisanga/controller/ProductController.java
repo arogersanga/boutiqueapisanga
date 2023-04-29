@@ -27,7 +27,8 @@ public class ProductController {
 	Category category;
 	
 	List<Product> productsByCategoryList = new ArrayList();
-	List<Product> productsByAffichageList = new ArrayList();;
+	List<Product> productsByAffichageList = new ArrayList();
+	List<Product> productsByLikeNameList = new ArrayList();
 	@Autowired
     ProductServiceImpl productsServiceImpl;
 	
@@ -45,7 +46,7 @@ public class ProductController {
     }
 	
 	@GetMapping(path="products/productsByAffichageId/{affichageId}")
-    public ResponseEntity<List<Product>> getProductsByAffichageId(@PathVariable("affichageId")  int affichageId) {
+    public ResponseEntity<List<Product>> getProductsByAffichageId(@PathVariable("affichageId") int affichageId) {
 		this.productsByAffichageList = productsServiceImpl.findByAffichageIds(affichageId);
     	
     	
@@ -107,6 +108,20 @@ public class ProductController {
          }
          else{
              return new ResponseEntity<>(this.affichage, HttpStatus.OK);
+         }
+    }
+	
+	
+
+	@GetMapping(path="products/productsListByLikeName/{likeName}")
+    public ResponseEntity<List<Product>> getAllProductsByLikeName(@PathVariable("likeName") String likeName) {
+		this.productsByLikeNameList = productsServiceImpl.findProductsByLikeName(likeName);
+    	
+    	 if(this.productsByLikeNameList == null || this.productsByLikeNameList.size() == 0){
+             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+         }
+         else{
+             return new ResponseEntity<>(this.productsByLikeNameList, HttpStatus.OK);
          }
     }
 

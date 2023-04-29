@@ -17,9 +17,12 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 	@Query("select p from Product p where p.categoryId = :categoryId")
 	List<Product> findByCategoryId(@Param("categoryId") int categoryId);
 	
-	@Query("select p from Product p where p.affichageIds like('%:affichageId%')")
+	@Query("select p.affichageIds from Product p where p.affichageIds like %:affichageId%")
 	List<Product> findByAffichageIds(@Param("affichageId") int affichageId);
 	
 	@Query("select p from Product p inner join Category c on p.categoryId = c.id where c.name = :name")
 	List<Product> findAllProductsByCategoryName(@Param("name") String name);
+	
+	@Query("select p from Product p where p.name like %:likeName%")
+	List<Product> findProductsByLikeName(@Param("likeName") String likeName);
 }

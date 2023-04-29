@@ -21,6 +21,9 @@ public class ProductServiceImpl implements ProductService {
 
 	List<Product> productsByAffichageList;
 	
+
+	List<Product> productsByLikeNameList;
+	
 	Product product;
 	Affichage affichage;
 	Category category;
@@ -68,5 +71,11 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> findAllProductsByCategoryName(String name) {
 		this.productsByCategoryList = this.productRepository.findAllProductsByCategoryName(name);
 		return this.productsByCategoryList;
+	}
+
+	@Override
+	public List<Product> findProductsByLikeName(String name) {
+		this.productsByLikeNameList = this.productRepository.findProductsByLikeName(name);
+		return this.productsByLikeNameList;
 	}
 }
